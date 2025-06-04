@@ -3,7 +3,7 @@ import { BookOpen, Leaf, HeartHandshake } from 'lucide-react';
 
 export default function HormoneHealthSection({ title, features, imageSrc }) {
   return (
-    <section className="flex flex-col container mx-auto lg:flex-row items-center py-12 bg-white">
+    <section className="flex flex-col container mx-auto lg:flex-row items-center py-12 bg-white px-4 sm:px-6 lg:px-8">
       {/* Image Section */}
       <div className="w-full lg:w-1/2 mb-8 lg:mb-0 animate-slide-in-left">
         <img

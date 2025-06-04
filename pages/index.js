@@ -4,21 +4,16 @@ import AboutSection from "../components/benhnoitiet/AboutSection";
 import GestationalDiabetesCalculator from "../components/benhnoitiet/GestationalDiabetesCalculator";
 import TelehealthSection from "../components/benhnoitiet/TelehealthSection";
 import PregnancyJourney from "../components/benhnoitiet/PregnancyJourney";
-import ServiceFeature from "../components/benhnoitiet/ServiceFeature";
 import FeaturedProductsHealth from "../components/benhnoitiet/FeaturedProductsHealth";
 import HeroSectionBlog from "../components/ecobacgiang/HeroSectionBlog";
 import FreelancerComponent from "../components/benhnoitiet/FreelancerComponent";
 import PostCard from "../components/common/PostCard";
 import Banner from "../components/benhnoitiet/Banner";
 import { readPostsFromDb, formatPosts } from "../lib/utils";
-import FoviaAboutUsComponent from "../components/benhnoitiet/FoviaAboutUsComponent";
 import TestimonialComponent from "../components/benhnoitiet/TestimonialComponent";
-import MissionComponent from "../components/benhnoitiet/MissionComponent";
 import FAQComponent from "../components/benhnoitiet/FAQComponent";
 import ServicesComponent from "../components/benhnoitiet/ServicesComponent";
 import ConsultationForm from "../components/tantruonggiang/ConsultationForm";
-
-
 
 
 // Helper chuyển path Cloudinary
@@ -44,11 +39,10 @@ export default function Home({ posts, meta }) {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Giang Nội Tiết",
-    url: "https://giangnoitiet.com",
-    logo: "https://giangnoitiet.com/logo.png",
+    url: "https://giangnoitiet.vn",
+    logo: "https://giangnoitiet.vn/logo.png",
     sameAs: [
       "https://www.facebook.com/giangnoitiet",
-      "https://www.linkedin.com/company/giangnoitiet",
     ],
     description:
       "Giang Nội Tiết – Chuyên tư vấn và điều trị các bệnh nội tiết, đặc biệt là tiểu đường thai kỳ cho phụ nữ mang thai, với giải pháp y tế hiện đại và tận tâm.",
@@ -71,14 +65,14 @@ export default function Home({ posts, meta }) {
       <GestationalDiabetesCalculator />
       <ServicesComponent />
       <FreelancerComponent />
-      <FAQComponent /> 
+      <FAQComponent />
       <TelehealthSection />
       <PregnancyJourney />
-      {/* <FeaturedProductsHealth /> */}
+      <FeaturedProductsHealth />
       <TestimonialComponent />
       <HeroSectionBlog />
-      <div className="container mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-3 px-2 pb-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-3  pb-6">
           {posts.slice(0, 3).map((post) => (
             <PostCard key={post.slug} post={post} />
           ))}
@@ -96,30 +90,30 @@ export async function getServerSideProps() {
 
   // SEO meta cho Giang Nội Tiết
   const meta = {
-    title: "Giang Nội Tiết – Tư vấn & Điều trị bệnh nội tiết, Tiểu đường thai kỳ",
+    title: "Giang Nội Tiết - Tư vấn bệnh nội tiết & Tiểu đường thai kỳ cho phụ nữ mang thai",
     description:
       "Giang Nội Tiết cung cấp dịch vụ tư vấn và điều trị chuyên sâu các bệnh nội tiết, đặc biệt là tiểu đường thai kỳ cho phụ nữ mang thai, với công nghệ y tế hiện đại.",
     keywords:
       "Giang Nội Tiết, bệnh nội tiết, tiểu đường thai kỳ, tư vấn sức khỏe, phụ nữ mang thai, y tế hiện đại",
     robots: "index, follow",
     author: "Giang Nội Tiết",
-    canonical: "https://giangnoitiet.com",
+    canonical: "https://giangnoitiet.vn",
     og: {
-      title: "Giang Nội Tiết – Chuyên tư vấn bệnh nội tiết & Tiểu đường thai kỳ",
+      title: "Giang Nội Tiết - Tư vấn bệnh nội tiết & Tiểu đường thai kỳ cho phụ nữ mang thai",
       description:
         "Giang Nội Tiết hỗ trợ phụ nữ mang thai và bệnh nhân nội tiết với các giải pháp y tế chuyên nghiệp và tận tâm.",
       type: "website",
-      image: "https://giangnoitiet.com/baner.webp",
+      image: "https://giangnoitiet.vn/baner.webp",
       imageWidth: "1200",
       imageHeight: "630",
-      url: "https://giangnoitiet.com",
+      url: "https://giangnoitiet.vn",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Giang Nội Tiết – Chuyên tư vấn bệnh nội tiết & Tiểu đường thai kỳ",
+      title: "Giang Nội Tiết - Tư vấn bệnh nội tiết & Tiểu đường thai kỳ cho phụ nữ mang thai",
       description:
         "Giang Nội Tiết – Địa chỉ tin cậy cho tư vấn và điều trị tiểu đường thai kỳ và các bệnh nội tiết.",
-      image: "https://giangnoitiet.com/baner.webp",
+      image: "https://giangnoitiet.vn/baner.webp",
     },
   };
 

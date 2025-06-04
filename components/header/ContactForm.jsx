@@ -93,30 +93,29 @@ export default function ContactForm() {
 
   return (
     <div className="">
-      <div className="max-w-8xl mx-auto">
-        <div className="bg-gray-50 borde rounded-3xl p-8 md:p-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div ref={leftSectionRef} className="opacity-0 md:block hidden">
-              <h2 className="text-xl font-semibold text-green-500 uppercase tracking-wide mb-2">
-                Đăng ký tư vấn
-              </h2>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
-                Tìm hiểu về nông sản hữu cơ của Eco Bắc Giang
-              </h3>
-              <p className="text-lg text-gray-600">
-                Eco Bắc Giang chuyên cung cấp các sản phẩm nông sản hữu cơ tươi sạch, đảm bảo an toàn cho sức khỏe. Hãy liên hệ với chúng tôi để được tư vấn và chọn lựa các sản phẩm chất lượng, bao gồm rau củ quả hữu cơ, trái cây theo mùa và các sản phẩm nông sản khác.
-              </p>
-              <p>
-                Liên hệ ngay để nhận tư vấn về sản phẩm nông sản hữu cơ phù hợp với nhu cầu của bạn!
-              </p>
-            </div>
+      <div className="max-w-7xl mx-auto">
+        <div className="border rounded-3xl p-8 md:p-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ju">
+            <div ref={leftSectionRef} className="opacity-0 md:block hidden justify-center">
 
+              <div className="relative z-10">
+                <img
+                  src="/images/tu-van.webp"
+                  alt="Bác sĩ tư vấn tiểu đường thai kỳ"
+                  onError={(e) => (e.target.src = "/images/fallback.webp")}
+                  className="w-3/4 h-auto object-cover rounded-full mx-auto"
+                />
+              </div>
+              <h2 className="text-xl mt-6 font-semibold text-[#00ca99] uppercase tracking-wide mb-2 text-center">
+                Đăng ký tư vấn miễn phí
+              </h2>
+            </div>
             <div ref={rightSectionRef} className="opacity-0">
               <form
                 onSubmit={handleSubmit}
                 className="space-y-4"
                 role="form"
-                aria-label="Form đăng ký tư vấn nông sản hữu cơ Eco Bắc Giang"
+                aria-label="Form đăng ký tư vấn tiểu đường thai kỳ Giang Nội Tiết"
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -129,9 +128,8 @@ export default function ContactForm() {
                       placeholder="Họ và tên"
                       aria-invalid={!!errors.name}
                       aria-describedby={errors.name ? "name-error" : undefined}
-                      className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${
-                        errors.name ? "border-red-500" : "border-gray-300"
-                      }`}
+                      className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 ${errors.name ? "border-red-500" : "border-gray-300"
+                        }`}
                     />
                     {errors.name && (
                       <p id="name-error" className="text-red-500 text-sm mt-1">
@@ -149,9 +147,8 @@ export default function ContactForm() {
                       placeholder="Số điện thoại"
                       aria-invalid={!!errors.phone}
                       aria-describedby={errors.phone ? "phone-error" : undefined}
-                      className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${
-                        errors.phone ? "border-red-500" : "border-gray-300"
-                      }`}
+                      className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 ${errors.phone ? "border-red-500" : "border-gray-300"
+                        }`}
                     />
                     {errors.phone && (
                       <p id="phone-error" className="text-red-500 text-sm mt-1">
@@ -170,9 +167,8 @@ export default function ContactForm() {
                     placeholder="Email của bạn (tùy chọn)"
                     aria-invalid={!!errors.email}
                     aria-describedby={errors.email ? "email-error" : undefined}
-                    className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${
-                      errors.email ? "border-red-500" : "border-gray-300"
-                    }`}
+                    className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 ${errors.email ? "border-red-500" : "border-gray-300"
+                      }`}
                   />
                   {errors.email && (
                     <p id="email-error" className="text-red-500 text-sm mt-1">
@@ -186,12 +182,14 @@ export default function ContactForm() {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Yêu cầu tư vấn của bạn (ví dụ: sản phẩm hữu cơ, số lượng, thời gian giao hàng...)"
-                    aria-describedby={errors.message ? "message-error" : undefined}
-                    className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary h-32 resize-none ${
-                      errors.message ? "border-red-500" : "border-gray-300"
-                    }`}
+                    placeholder="Yêu cầu tư vấn của bạn (ví dụ: tình trạng tiểu đường thai kỳ, chế độ ăn uống, thời gian tư vấn...)"
+                    aria-describedby={errors.message ? "message-error" : "message-count"}
+                    className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 h-32 resize-none ${errors.message ? "border-red-500" : "border-gray-300"
+                      }`}
                   />
+                  <p id="message-count" className="text-sm text-gray-500 text-right">
+                    {formData.message.length}/500
+                  </p>
                   {errors.message && (
                     <p id="message-error" className="text-red-500 text-sm mt-1">
                       {errors.message}
@@ -209,9 +207,8 @@ export default function ContactForm() {
               </form>
               {status && (
                 <p
-                  className={`mt-2 text-center ${
-                    status.includes("thành công") ? "text-green-600" : "text-red-600"
-                  }`}
+                  className={`mt-2 text-center ${status.includes("thành công") ? "text-green-600" : "text-red-600"
+                    }`}
                 >
                   {status}
                 </p>

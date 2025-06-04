@@ -19,7 +19,7 @@ export default function AboutUs({ meta }) {
   return (
     <DefaultLayout2>
       {/* Hero Section */}
-      <section className="relative h-[300px] md:h-[400px] bg-[#F5F5F5]">
+      <section className="relative h-[200px] md:h-[300px] bg-[#F5F5F5]">
         <div className="absolute inset-0">
           <Image
             src="/images/5.jpg"
@@ -32,7 +32,7 @@ export default function AboutUs({ meta }) {
         </div>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-[#333333]">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#A2CFFE]">Về Giang Nội Tiết</h1>
-          <nav aria-label="Breadcrumb" className="text-[#666666]">
+          <nav aria-label="Breadcrumb" className="text-white">
             <Link href="/">
               <span className="hover:text-[#FFD1DC] cursor-pointer">
                 Trang Chủ

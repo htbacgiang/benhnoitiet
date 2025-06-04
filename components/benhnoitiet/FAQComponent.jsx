@@ -23,7 +23,7 @@ const FAQComponent = () => {
         answer:
           "Nếu không kiểm soát tốt, bé có nguy cơ to (macrosomia), hạ đường huyết sơ sinh, vàng da, hoặc vấn đề hô hấp. Kiểm soát đường huyết tốt giảm nguy cơ đáng kể.",
       },
-  
+
       {
         question: "Mẹ bị TĐTK cho con bú có sao không?",
         answer:
@@ -39,7 +39,7 @@ const FAQComponent = () => {
         answer:
           "Khoảng 90% hết sau sinh. Làm OGTT (75g glucose) sau 4-12 tuần. Bình thường: Đói <100 mg/dL, sau 2h <140 mg/dL. Test lại mỗi 1-3 năm vì nguy cơ tiểu đường type 2 cao.",
       },
-   
+
     ],
     []
   );
@@ -52,24 +52,27 @@ const FAQComponent = () => {
     <section className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gradient-to-r from-blue-50 to-white">
       <div className="w-full max-w-7xl p-6 flex flex-col md:flex-row items-center">
         {/* Image Section */}
-        <div className="w-full md:w-1/2 mb-6 md:mb-0 relative">
-          <div className="relative z-10">
+        <div className="w-full md:w-1/2 mb-6 md:mb-0 flex justify-center items-center relative">
+          <div className="relative flex flex-col items-center">
             <img
               src="/images/banner-img-1.png"
               alt="Bác sĩ tư vấn tiểu đường thai kỳ"
-              className="w-3/4 mx-auto md:mx-0 h-auto object-cover rounded-full"
+              className="w-3/4 h-auto object-cover rounded-full"
+              loading="lazy"
             />
-          </div>
-          <div className="absolute top-1/2 left-3/4 transform -translate-y-1/2 bg-purple-500 text-white rounded-lg p-4 shadow-lg">
-            <p className="text-base font-semibold">Hỗ Trợ Giải Đáp Về Tiểu Đường Thai Kỳ!</p>
+            <div className="absolute bottom-0 bg-purple-500 text-white rounded-lg p-4 shadow-lg z-40 w-[80%] max-w-xl flex justify-center items-center">
+              <p className="text-sm sm:text-base font-semibold text-center">
+                Hỗ Trợ Giải Đáp Về Tiểu Đường Thai Kỳ!
+              </p>
+            </div>
           </div>
         </div>
 
         {/* FAQ Section */}
         <div className="w-full md:w-1/2 md:pl-8 text-center md:text-left">
-          <h1 className="text-2xl font-bold text-black">
+          <h2 className="text-2xl font-bold text-black md:block hidden">
             Giải Đáp Thắc Mắc Về Tiểu Đường Thai Kỳ
-          </h1>
+          </h2>
           <p className="mt-4 text-gray-600">
             Tìm hiểu các thông tin cần thiết để kiểm soát tiểu đường thai kỳ, đảm bảo sức khỏe cho mẹ và bé.
           </p>

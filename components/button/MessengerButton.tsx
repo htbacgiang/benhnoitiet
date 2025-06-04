@@ -9,7 +9,7 @@ import Zalo from "../../public/zalo-icon.png";
 
 const MessengerButton: FC = () => {
   const openMessenger = () => {
-    window.open('https://m.me/147995528391633', '_blank');
+    window.open('https://m.me/giangnoitiet', '_blank');
   };
 
   return (
@@ -31,7 +31,7 @@ const MessengerButton: FC = () => {
         <div className={styles.zaloRingCircle}></div>
         <div className={styles.zaloRingCircleFill}>
           <button>
-            <Link href="http://zalo.me/0979842701">
+            <Link href="http://zalo.me/0948907686">
               <Image src={Zalo} alt="Zalo Icon" width={60} height={60} />
             </Link>
           </button>

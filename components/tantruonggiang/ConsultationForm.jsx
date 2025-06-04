@@ -67,7 +67,7 @@ export default function ConsultationForm() {
   return (
     <section className="py-12 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#9DC183] text-center mb-8">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#00ca99] text-center mb-8">
           ĐĂNG KÝ TƯ VẤN TIỂU ĐƯỜNG THAI KỲ
         </h2>
 

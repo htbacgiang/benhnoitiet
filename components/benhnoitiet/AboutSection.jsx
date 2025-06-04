@@ -5,14 +5,13 @@ export default function AboutSection() {
     <section className="bg-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* Left Side - Images */}
+          {/* Left Side - Images (Giữ nguyên) */}
           <div className="relative grid grid-cols-2 grid-rows-2 gap-4">
             <div className="relative rounded-2xl overflow-hidden bg-gray-200 h-64">
               <div
                 className="w-full h-full bg-cover bg-center"
                 style={{ backgroundImage: `url(/images/1.jpg)` }}
               />
-              {/* Decorative Square Overlay */}
               <div className="absolute -top-6 -left-6 w-16 h-16 border-2 border-blue-200 rotate-45 bg-white"></div>
             </div>
             <div className="relative rounded-2xl overflow-hidden bg-gray-200 h-64">
@@ -32,19 +31,16 @@ export default function AboutSection() {
                 className="w-full h-full bg-cover bg-center"
                 style={{ backgroundImage: `url(/images/5.jpg)` }}
               />
-              {/* Zigzag Overlay */}
               <div className="absolute bottom-0 left-0 w-full h-8 bg-orange-500 opacity-50">
                 <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                   <path d="M0,0 L100,0 L100,50 L75,100 L50,50 L25,100 L0,50 Z" fill="white" />
                 </svg>
               </div>
             </div>
-            {/* 12 Years Experience Badge */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-75 bg-blue-100 text-blue-600 rounded-full w-48 h-48 flex flex-col items-center justify-center p-4">
               <span className="text-5xl font-extrabold">12</span>
               <span className="text-lg font-bold">Năm Kinh Nghiệm</span>
             </div>
-            {/* Orange Dot Overlay */}
             <div className="absolute top-2 right-2 w-12 h-12 bg-orange-200 rounded-full flex items-center justify-center">
               <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -53,22 +49,20 @@ export default function AboutSection() {
           </div>
 
           {/* Right Side - Text and Buttons */}
-          <div className="space-y-6 relative">
-            {/* Decorative Dotted Square */}
-            <div className="absolute top-0 right-0 w-16 h-16 border-2 border-dotted border-orange-500"></div>
-            <div>
-              <h2 className="text-[#A8E4A0] text-xl font-semibold relative inline-block ml-2">
+          <div className="space-y-3 relative">
+            <div className="flex justify-center lg:justify-start">
+              <h2 className="text-[#A8E4A0] text-xl font-semibold relative inline-flex items-center md:ml-6">
                 <span className="relative z-10">Về Giang Nội Tiết</span>
                 <span className="absolute -left-8 top-1/2 transform -translate-y-1/2 w-6 h-0.5 bg-[#A8E4A0]"></span>
                 <span className="absolute -right-8 top-1/2 transform -translate-y-1/2 w-6 h-0.5 bg-[#A8E4A0]"></span>
               </h2>
-              <h1 className="text-xl uppercase font-bold text-[#A2CFFE] mt-4 leading-tight">
-                Nguyễn Thị Hương Giang – Chuyên gia Nội Tiết
-              </h1>
-              <p className="mt-4 text-gray-600 text-base leading-relaxed">
-                Với hơn 12 năm kinh nghiệm tại Bệnh viện Nội Tiết Trung Ương, tôi chuyên tư vấn và điều trị các rối loạn nội tiết ở phụ nữ, đặc biệt là tiểu đường thai kỳ, giúp phụ nữ Việt Nam sống khỏe mạnh và tự tin qua mọi giai đoạn cuộc đời.
-              </p>
             </div>
+            <h1 className="md:text-xl text-sm uppercase font-bold text-[#A2CFFE] leading-tight text-center lg:text-left">
+              Nguyễn Thị Hương Giang – Chuyên gia Nội Tiết
+            </h1>
+            <p className="mt-4 text-gray-600 text-base leading-relaxed">
+              Với hơn 12 năm kinh nghiệm tại Bệnh viện Nội Tiết Trung Ương, tôi chuyên tư vấn và điều trị các rối loạn nội tiết ở phụ nữ, đặc biệt là tiểu đường thai kỳ, giúp phụ nữ Việt Nam sống khỏe mạnh và tự tin qua mọi giai đoạn cuộc đời.
+            </p>
             <div className="grid grid-cols-2 gap-4">
               <button className="bg-teal-100 text-teal-700 px-4 py-3 rounded-full flex items-center space-x-3 hover:bg-teal-200 transition-all">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

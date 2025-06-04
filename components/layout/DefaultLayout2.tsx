@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import NavbarWhite from '../header/NavbarWhite';
 import MessengerButton from '../button/MessengerButton';
 import NavbarMobile from './NavbarMobile';
+import Footer from '../common/Footer';
 
 const GoogleAnalytics = dynamic(() => import('../common/GoogleAnalytics'), { ssr: false });
 
@@ -22,7 +23,7 @@ const DefaultLayout: FC<Props> = ({ title, desc, thumbnail, children }): JSX.Ele
         <GoogleAnalytics />
         <div className="mx-auto max-w-full">{children}</div>
         <MessengerButton />
-        <NavbarMobile />
+        <Footer />
       </div>
     </>
   );

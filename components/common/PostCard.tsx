@@ -75,7 +75,7 @@ const PostCard: FC<Props> = ({
         </div>
 
         {/* Content */}
-        <div className="p-4 flex flex-col space-y-3">
+        <div className="py-4 flex flex-col space-y-3">
           {/* Title */}
           <Link href={`/bai-viet/${slug}`}>
             <h2 className="text-xl font-bold text-gray-800">

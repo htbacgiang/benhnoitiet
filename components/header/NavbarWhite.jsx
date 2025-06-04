@@ -48,7 +48,7 @@ const Navbar = () => {
             <li>
               <Link
                 href="/"
-                className={`hover:text-green-600 font-heading font-semibold ${
+                className={`hover:text-[#00ca99] font-heading font-semibold ${
                   isSticky ? "text-black" : "text-white"
                 }`}
               >
@@ -58,7 +58,7 @@ const Navbar = () => {
             <li>
               <Link
                 href="/gioi-thieu"
-                className={`hover:text-green-600 font-heading font-semibold ${
+                className={`hover:text-[#00ca99] font-heading font-semibold ${
                   isSticky ? "text-black" : "text-white"
                 }`}
               >
@@ -68,7 +68,7 @@ const Navbar = () => {
             <li>
               <Link
                 href="/bai-viet"
-                className={`hover:text-green-600 font-heading font-semibold ${
+                className={`hover:text-[#00ca99] font-heading font-semibold ${
                   isSticky ? "text-black" : "text-white"
                 }`}
               >
@@ -78,7 +78,7 @@ const Navbar = () => {
             <li>
               <Link
                 href="/san-pham"
-                className={`hover:text-green-600 font-heading font-semibold ${
+                className={`hover:text-[#00ca99] font-heading font-semibold ${
                   isSticky ? "text-black" : "text-white"
                 }`}
               >
@@ -88,7 +88,7 @@ const Navbar = () => {
             <li>
               <Link
                 href="/lien-he"
-                className={`hover:text-green-600 font-heading font-semibold ${
+                className={`hover:text-[#00ca99] font-heading font-semibold ${
                   isSticky ? "text-black" : "text-white"
                 }`}
               >
@@ -134,7 +134,7 @@ const Navbar = () => {
 
         {/* Hamburger Menu */}
         <div
-          className="md:hidden cursor-pointer text-black"
+          className="md:hidden cursor-pointer text-white"
           onClick={toggleMenu}
           role="button"
           aria-label={menuOpen ? "Close menu" : "Open menu"}

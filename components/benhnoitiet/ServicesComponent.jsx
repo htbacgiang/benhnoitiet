@@ -59,14 +59,14 @@ const ServicesComponent = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-blue-50">
-      <div className="w-full max-w-6xl p-6 text-center">
-        <h1 className="text-4xl font-bold text-black mt-2">
+      <div className="w-full max-w-6xl p-2 text-center mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="md:text-4xl text-xl font-bold text-black mt-2">
           Dịch Vụ Hỗ Trợ Tiểu Đường Thai Kỳ
-        </h1>
-        <p className="mt-4 text-gray-600">
+        </h2>
+        <p className="mt-2 text-gray-600">
           Cung cấp các giải pháp toàn diện giúp bà bầu quản lý tiểu đường thai kỳ, đảm bảo sức khỏe cho mẹ và bé thông qua tư vấn chuyên sâu, dinh dưỡng, và chăm sóc tinh thần.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2 mt-8">
           {services.map((service, index) => (
             <div
               key={index}
@@ -77,7 +77,7 @@ const ServicesComponent = () => {
                   setHoveredIndex(hoveredIndex === index ? null : index);
                 }
               }}
-              className={`relative rounded-lg shadow-md p-6 text-center min-h-[300px] flex flex-col justify-between transition-all duration-300 ${
+              className={`relative rounded-lg shadow-md p-6 text-center min-h-[250px] flex flex-col justify-center transition-all duration-300 ${
                 hoveredIndex === index
                   ? "bg-black bg-opacity-60 text-white"
                   : "bg-white text-black"
@@ -93,8 +93,8 @@ const ServicesComponent = () => {
                   hoveredIndex === index ? "text-white" : "text-[#00ca99]"
                 }`,
               })}
-              <h3 className="text-lg font-medium">{service.name}</h3>
-              <p className="mt-2 text-sm flex-grow">{service.description}</p>
+              <h3 className="text-lg font-bold">{service.name}</h3>
+              <p className="mt-2 text-sm flex-grow hidden md:block">{service.description}</p>
             </div>
           ))}
         </div>

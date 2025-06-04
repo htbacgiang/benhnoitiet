@@ -6,11 +6,11 @@ const HeroSectionBlog = ({
 }) => {
   return (
     <section
-      className="py-6 flex flex-col items-center justify-center bg-gray-50"
+      className="py-6 flex flex-col items-center justify-center"
       aria-labelledby="hero-heading"
     >
       {/* Label */}
-      <div className="text-blue-600 uppercase text-xl md:text-2xl font-semibold tracking-wide mb-4">
+      <div className="text-[#00ca99] uppercase text-xl md:text-2xl font-semibold tracking-wide mb-4">
         {label}
       </div>
       {/* Main Heading */}
