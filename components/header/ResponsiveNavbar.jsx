@@ -4,7 +4,7 @@ import Image from "next/image";
 import { AiOutlineClose } from "react-icons/ai";
 import { FaFacebook, FaInstagram, FaTiktok, FaYoutube, FaAngleDown, FaChevronUp } from "react-icons/fa";
 import ContactForm from "./ContactForm";
-import logo from "../../public/logoecobacgiang.png";
+import logo from "../../public/logo-giang-noi-tiet-2.png";
 
 const ResponsiveMenu = ({ isOpen, toggleMenu }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -22,7 +22,6 @@ const ResponsiveMenu = ({ isOpen, toggleMenu }) => {
     { name: "Trang chủ", link: "/" },
     { name: "Giới thiệu", link: "/gioi-thieu" },
     { name: "Kiến thức", link: "/bai-viet" },
-    { name: "Sản phẩm", link: "/san-pham" },
     { name: "Liên hệ", link: "/lien-he" },
   ];
 
@@ -123,7 +122,7 @@ const ResponsiveMenu = ({ isOpen, toggleMenu }) => {
             <FaFacebook />
           </a>
           <a
-            href="https://youtube.com"
+            href="https://www.youtube.com/@giangnoitiet"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xl text-[#FF0000]" // Màu đỏ của YouTube
@@ -132,7 +131,7 @@ const ResponsiveMenu = ({ isOpen, toggleMenu }) => {
             <FaYoutube />
           </a>
           <a
-            href="https://tiktok.com"
+            href="https://www.tiktok.com/@giangnoitiettw"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xl text-[#000000]" // Màu đen của TikTok
@@ -141,7 +140,7 @@ const ResponsiveMenu = ({ isOpen, toggleMenu }) => {
             <FaTiktok />
           </a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/giangnoitiet/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xl text-[#E1306C]" // Màu hồng của Instagram

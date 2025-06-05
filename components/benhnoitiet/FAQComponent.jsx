@@ -55,7 +55,7 @@ const FAQComponent = () => {
         <div className="w-full md:w-1/2 mb-6 md:mb-0 flex justify-center items-center relative">
           <div className="relative flex flex-col items-center">
             <img
-              src="/images/banner-img-1.png"
+              src="/images/tu-van-giang-noi-tiet.webp"
               alt="Bác sĩ tư vấn tiểu đường thai kỳ"
               className="w-3/4 h-auto object-cover rounded-full"
               loading="lazy"

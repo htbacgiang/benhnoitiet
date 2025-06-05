@@ -93,7 +93,7 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
       }
     >
       <Link onClick={() => setShowSidebar(false)} className="mb-6 justify-center mx-auto flex mt-2" href="/">
-        <Image height={100} width={100} alt="avatar" src="/logoecobacgiang.png" />
+        <Image height={100} width={100} alt="avatar" src="/logo-giang-noi-tiet-2.png" />
       </Link>
 
       <div className="space-y-3 flex flex-col mt-14">

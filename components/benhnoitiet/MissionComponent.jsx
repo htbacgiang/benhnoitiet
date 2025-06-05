@@ -9,17 +9,17 @@ const MissionComponent = () => {
         {/* Image Section */}
         <div className="w-full md:w-1/2 mb-6 md:mb-0">
           <img
-            src="/images/3.jpg"
+            src="/benhnoitiet/1.jpg"
             alt="Điều dưỡng hỗ trợ sức khỏe mẹ bầu"
             className="w-full h-auto object-cover rounded-lg shadow-md"
           />
         </div>
 
         {/* Text Section */}
-        <div className="w-full md:w-1/2 md:pl-8 text-center md:text-left">
-          <h3 className="text-3xl font-bold text-[#A2CFFE]">
+        <div className="w-full md:w-1/2 md:pl-8 text-left">
+          <h2 className="text-3xl font-bold text-[#A2CFFE]">
             Sứ Mệnh Của Giang Nội Tiết
-          </h3>
+          </h2>
           <p className="mt-4 text-[#666666]">
             Sứ mệnh của tôi là giúp hàng triệu phụ nữ Việt Nam, đặc biệt là mẹ bầu, hiểu rõ cơ thể mình, chủ động kiểm soát sức khỏe nội tiết và quản lý tiểu đường thai kỳ, để đảm bảo sức khỏe cho cả mẹ và bé trong các giai đoạn quan trọng như:
           </p>

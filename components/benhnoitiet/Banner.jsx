@@ -5,28 +5,28 @@ import ContactForm from '../header/ContactForm';
 
 const SOCIAL_LINKS = [
   {
-    href: 'https://facebook.com/yourpage',
+    href: 'https://facebook.com/giangnoitiet',
     label: 'Facebook',
     Icon: FaFacebookF,
     colorClass: 'text-blue-600',
     hoverClass: 'hover:text-blue-700',
   },
   {
-    href: 'https://tiktok.com/yourpage',
+    href: 'https://www.tiktok.com/@giangnoitiettw',
     label: 'TikTok',
     Icon: FaTiktok,
     colorClass: 'text-black',
     hoverClass: 'hover:text-teal-500', // TikTok’s accent color for hover
   },
   {
-    href: 'https://instagram.com/yourpage',
+    href: 'https://www.instagram.com/giangnoitiet',
     label: 'Instagram',
     Icon: FaInstagram,
     colorClass: 'text-pink-600',
     hoverClass: 'hover:text-pink-700',
   },
   {
-    href: 'https://youtube.com/yourpage',
+    href: 'https://www.youtube.com/@giangnoitiet',
     label: 'YouTube',
     Icon: FaYoutube,
     colorClass: 'text-red-600',
@@ -42,11 +42,11 @@ const Popup = ({ isOpen, onClose, children, ariaLabel }) => {
       onClick={onClose}
     >
       <div
-        className="relative bg-white p-4 sm:p-6 rounded-lg w-full max-w-[90%] sm:max-w-[80%] md:max-w-[60%] mx-auto popup"
+        className="relative bg-white p-2 sm:p-4 rounded-lg w-full max-w-[90%] sm:max-w-[80%] md:max-w-[60%] mx-auto popup"
         onClick={(e) => e.stopPropagation()}
       >
         <button
-          className="absolute top-1 sm:top-2 right-1 sm:right-2 text-gray-600 hover:text-gray-800"
+          className="absolute top-0 sm:top-0 right-0 sm:right-0 text-gray-600 hover:text-gray-800"
           onClick={onClose}
           aria-label={ariaLabel}
         >
@@ -92,7 +92,7 @@ const Banner = () => {
     <div className="relative bg-white text-gray-800 min-h-screen px-4 sm:px-6 md:px-12 py-4 md:py-8">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/banner-bg-1.png"
+          src="/images/banner-bg-1.webp"
           alt=""
           layout="fill"
           objectFit="cover"
@@ -155,7 +155,7 @@ const Banner = () => {
               className="absolute inset-0 rounded-2xl transform rotate-6 z-[-1]"
             />
             <Image
-              src="/images/banner-img-1.png"
+              src="/images/banner-img-1.webp"
               alt="Doctor consulting"
               layout="fill"
               objectFit="cover"
@@ -179,8 +179,7 @@ const Banner = () => {
           preload="metadata"
           poster="/images/video-placeholder.png"
         >
-          <source src="/videos/sample.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
+          <source src="/giang-noi-tiet.mp4" type="video/mp4" />
         </video>
       </Popup>
 

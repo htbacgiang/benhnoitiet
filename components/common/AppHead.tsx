@@ -8,7 +8,7 @@ interface Props {
   url?: string;
 }
 
-export const APP_NAME = "Eco Bắc Giang - Nông nghiệp trong suy nghĩ";
+export const APP_NAME = "Giang Nội Tiết";
 
 const AppHead: FC<Props> = ({ title, desc, thumbnail, url }): JSX.Element => {
 

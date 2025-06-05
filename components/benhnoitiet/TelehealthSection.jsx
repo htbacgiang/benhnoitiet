@@ -15,9 +15,9 @@ export default function HormoneHealthSection({ title, features, imageSrc }) {
 
       {/* Text Content */}
       <div className="w-full lg:w-1/2 lg:pl-12 animate-slide-in-right">
-        <h1 className="text-2xl uppercase font-bold text-gray-800 mb-6">
+        <h2 className="text-2xl uppercase font-bold text-gray-800 mb-6">
           {title}
-        </h1>
+        </h2>
         <div className="space-y-6">
           {features.map((feature, index) => (
             <div key={index} className="flex items-start">
@@ -84,5 +84,5 @@ HormoneHealthSection.defaultProps = {
       ), // Icon HeartHandshake: thể hiện sự hỗ trợ và đồng hành
     },
   ],
-  imageSrc: '/images/5.jpg',
+  imageSrc: '/images/gia-tri.webp',
 };

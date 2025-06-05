@@ -106,9 +106,9 @@ export default function ContactForm() {
                   className="w-3/4 h-auto object-cover rounded-full mx-auto"
                 />
               </div>
-              <h2 className="text-xl mt-6 font-semibold text-[#00ca99] uppercase tracking-wide mb-2 text-center">
+              <h4 className="text-xl mt-6 font-semibold text-[#00ca99] uppercase tracking-wide mb-2 text-center">
                 Đăng ký tư vấn miễn phí
-              </h2>
+              </h4>
             </div>
             <div ref={rightSectionRef} className="opacity-0">
               <form

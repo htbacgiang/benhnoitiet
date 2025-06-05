@@ -107,7 +107,7 @@ export async function getServerSideProps() {
       description:
         "Liên hệ với Giang Nội Tiết qua địa chỉ, email và số điện thoại để được tư vấn về sản phẩm sức khỏe chất lượng cao.",
       type: "website",
-      image: `${BASE_URL}/images/banner.png`,
+      image: `${BASE_URL}/images/anh-bia-giang-noi-tiet.webp`,
       imageWidth: "1200",
       imageHeight: "630",
       url: `${BASE_URL}/lien-he`,
@@ -119,8 +119,8 @@ export async function getServerSideProps() {
       title: "Liên Hệ – Giang Nội Tiết",
       description:
         "Liên hệ với Giang Nội Tiết để được tư vấn về các sản phẩm sức khỏe chất lượng cao.",
-      image: `${BASE_URL}/images/banner.png`,
-      site: "@GiangNoiTiep",
+      image: `${BASE_URL}/images/anh-bia-giang-noi-tiet.webp`,
+      site: "@GiangNoiTiet",
     },
   };
 

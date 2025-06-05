@@ -12,14 +12,14 @@ const PregnancyJourney = () => {
     {
       id: 2,
       name: 'Mang bầu',
-      image: '/images/trong.jpg',
+      image: '/images/trong.webp',
       description: 'Kiểm soát cân nặng, tiểu đường thai kỳ, chế độ dinh dưỡng cân bằng. Các bài tập phù hợp cho từng tam cá nguyệt và công cụ tính BMI, chỉ số đường huyết, lịch khám.',
       alt: 'Giai đoạn mang bầu',
     },
     {
       id: 3,
       name: 'Sau sinh',
-      image: '/images/sau-sinh.jpg',
+      image: '/images/sau-sinh.webp',
       description: 'Hồi phục nội tiết, chăm sóc khi cho con bú, dinh dưỡng cho mẹ, tập luyện nhẹ nhàng, hỗ trợ tâm lý. Checklist mốc thời gian: 6 tuần, 3 tháng, 6 tháng.',
       alt: 'Chăm sóc sau sinh',
     },

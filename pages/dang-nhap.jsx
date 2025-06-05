@@ -1,5 +1,6 @@
+// pages/signin.js
 import { useState } from "react";
-import Head from "next/head";
+import Head from "next/head"; // Đảm bảo đã import Head
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { getCsrfToken, getProviders, getSession, signIn } from "next-auth/react";
@@ -7,9 +8,9 @@ import { useRouter } from "next/router";
 import { FaEnvelope, FaLock, FaEye, FaEyeSlash, FaGoogle, FaFacebook } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import DefaultLayout3 from "../components/layout/DefaultLayout3";
 import Link from "next/link";
-// Schema xác thực với Yup
+
+// Schema xác thực với Yup (giữ nguyên)
 const loginValidation = Yup.object({
   login_email: Yup.string()
     .required("Vui lòng nhập email hoặc số điện thoại.")
@@ -96,52 +97,59 @@ export default function Signin({ providers, callbackUrl, csrfToken }) {
   };
 
   return (
-    <DefaultLayout3>
+    <>
       <Head>
-        <title>Đăng nhập - Eco Bắc Giang | Eco Coffee</title>
+        <title>Đăng nhập - Giang Nội Tiết</title>
         <meta
           name="description"
-          content="Đăng nhập vào Eco Bắc Giang để trải nghiệm không gian cà phê sân vườn độc đáo. Đăng nhập bằng email, số điện thoại hoặc Google/Facebook."
+          content="Đăng nhập vào tài khoản Giang Nội Tiết để quản lý thông tin sức khỏe, theo dõi tiến trình và truy cập các tài liệu chuyên sâu về nội tiết và tiểu đường."
         />
         <meta
           name="keywords"
-          content="Eco Bắc Giang, Eco Coffee, đăng nhập, cà phê Bắc Giang, không gian xanh"
+          content="Giang Nội Tiết, đăng nhập, tài khoản sức khỏe, nội tiết, tiểu đường, y tế, quản lý bệnh"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {/* Quan trọng: Trang đăng nhập KHÔNG NÊN được Google lập chỉ mục */}
         <meta name="robots" content="noindex, nofollow" />
-        <meta property="og:title" content="Đăng nhập - Eco Bắc Giang | Eco Coffee" />
+        <meta property="og:title" content="Đăng nhập - Giang Nội Tiết" />
         <meta
           property="og:description"
-          content="Đăng nhập để khám phá Eco Coffee Bắc Giang - không gian xanh, đồ uống ngon, check-in đẹp. Gọi ngay: 0335 328 668!"
+          content="Đăng nhập vào Giang Nội Tiết để quản lý thông tin sức khỏe, theo dõi tiến trình và truy cập các tài liệu chuyên sâu về nội tiết và tiểu đường."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ecobacgiang.com/signin" />
-        <meta property="og:image" content="/images/eco-coffee-bac-giang.jpg" />
-        <meta property="og:site_name" content="Eco Bắc Giang" />
+        {/* Đảm bảo URL này là URL chính xác của trang đăng nhập trên Giang Nội Tiết */}
+        <meta property="og:url" content="https://giangnoitiet.vn/dang-nhap" />
+        {/* Thay thế bằng hình ảnh phù hợp với Giang Nội Tiết, ví dụ: logo, hình ảnh liên quan đến sức khỏe/y tế */}
+        <meta property="og:image" content="/images/giang-noi-tiet-logo.jpg" />
+        <meta property="og:site_name" content="Giang Nội Tiết" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Đăng nhập - Eco Bắc Giang | Eco Coffee" />
+        <meta name="twitter:title" content="Đăng nhập - Giang Nội Tiết" />
         <meta
           name="twitter:description"
-          content="Đăng nhập để trải nghiệm Eco Coffee Bắc Giang - không gian xanh, check-in đẹp."
+          content="Đăng nhập tài khoản Giang Nội Tiết để theo dõi sức khỏe nội tiết và tiểu đường."
         />
-        <meta name="twitter:image" content="/images/eco-coffee-bac-giang.jpg" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://ecobacgiang.com/signin" />
+        {/* Thay thế bằng hình ảnh phù hợp với Giang Nội Tiết */}
+        <meta name="twitter:image" content="/images/giang-noi-tiet-logo.jpg" />
+        {/* Thay thế bằng favicon của Giang Nội Tiết */}
+        <link rel="icon" href="/favicon-giangnoitiet.ico" /> 
+        {/* URL Canonical của trang đăng nhập */}
+        <link rel="canonical" href="https://giangnoitiet.vn/dang-nhap" />
         <meta httpEquiv="content-language" content="vi" />
+        {/* Schema Markup cho WebPage */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: "Đăng nhập - Eco Bắc Giang",
+            name: "Đăng nhập - Giang Nội Tiết",
             description:
-              "Đăng nhập vào Eco Bắc Giang để trải nghiệm không gian cà phê sân vườn độc đáo.",
-            url: "https://ecobacgiang.com/signin",
+              "Đăng nhập vào tài khoản Giang Nội Tiết để quản lý thông tin sức khỏe, theo dõi tiến trình và truy cập các tài liệu chuyên sâu về nội tiết và tiểu đường.",
+            url: "https://giangnoitiet.vn/signin",
             publisher: {
               "@type": "Organization",
-              name: "Eco Bắc Giang",
+              name: "Giang Nội Tiết",
               logo: {
                 "@type": "ImageObject",
-                url: "/images/eco-logo.png",
+                url: "/images/giang-noi-tiet-logo.png", // Đảm bảo đường dẫn này đúng
               },
             },
           })}
@@ -159,7 +167,8 @@ export default function Signin({ providers, callbackUrl, csrfToken }) {
       <section
         className="min-h-screen flex items-center justify-center relative"
         style={{
-          backgroundImage: `url('/dang-ky.jpg')`,
+          // Đổi ảnh nền cho phù hợp với Giang Nội Tiết
+          backgroundImage: `url('/dang-ky.webp')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -293,27 +302,33 @@ export default function Signin({ providers, callbackUrl, csrfToken }) {
                 {/* Social Login Buttons */}
                 <div className="space-y-4">
                   <div className="text-center text-white mb-4">Hoặc đăng nhập bằng</div>
-                  <button
-                    type="button"
-                    onClick={() => handleSocialSignIn("google")}
-                    className="w-full py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors flex items-center justify-center gap-2"
-                  >
-                    <FaGoogle /> Đăng nhập bằng Google
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleSocialSignIn("facebook")}
-                    className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
-                  >
-                    <FaFacebook /> Đăng nhập bằng Facebook
-                  </button>
+                  {/* Chỉ hiển thị nút Google nếu provider có sẵn */}
+                  {providers?.google && (
+                    <button
+                      type="button"
+                      onClick={() => handleSocialSignIn("google")}
+                      className="w-full py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors flex items-center justify-center gap-2"
+                    >
+                      <FaGoogle /> Đăng nhập bằng Google
+                    </button>
+                  )}
+                  {/* Chỉ hiển thị nút Facebook nếu provider có sẵn */}
+                  {providers?.facebook && (
+                    <button
+                      type="button"
+                      onClick={() => handleSocialSignIn("facebook")}
+                      className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
+                    >
+                      <FaFacebook /> Đăng nhập bằng Facebook
+                    </button>
+                  )}
                 </div>
               </Form>
             )}
           </Formik>
         </div>
       </section>
-    </DefaultLayout3>
+    </>
   );
 }
 
@@ -326,6 +341,7 @@ export async function getServerSideProps(context) {
     return {
       redirect: {
         destination: callbackUrl,
+        permanent: false, // Sử dụng permanent: false cho redirect tạm thời
       },
     };
   }
@@ -335,7 +351,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      providers: providers || { google: {}, facebook: {} },
+      providers: providers || {}, // Trả về providers là object rỗng nếu null
       csrfToken: csrfToken || null,
       callbackUrl,
     },

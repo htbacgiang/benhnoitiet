@@ -97,9 +97,9 @@ export default function ContactForm() {
         <div className="bg-gray-50 borde rounded-3xl p-8 md:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div ref={leftSectionRef} className="opacity-0 md:block hidden">
-              <h2 className="text-xl font-semibold text-[#105d97] uppercase tracking-wide mb-2">
+              <h3 className="text-xl font-semibold text-[#105d97] uppercase tracking-wide mb-2">
                 Đăng ký tư vấn
-              </h2>
+              </h3>
               <h3 className="text-xl font-bold text-gray-900 mb-4">
                 Nâng tầm phong cách với Đồng phục Univi
               </h3>

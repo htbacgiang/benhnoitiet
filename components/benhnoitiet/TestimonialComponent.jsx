@@ -16,21 +16,21 @@ const TestimonialComponent = () => {
       role: "Bà bầu, 28 tuần",
       feedback:
         "Nhờ sự hướng dẫn chi tiết của bác sĩ Giang, tôi đã điều chỉnh chế độ ăn uống và tập luyện phù hợp để kiểm soát tiểu đường thai kỳ. Chị ấy rất chu đáo và luôn sẵn sàng giải đáp thắc mắc!",
-      image: "/images/chi-hoa.jpg",
+      image: "/images/ngoc-linh.webp",
     },
     {
       name: "Lê Hoàng Anh",
-      role: "Bà bầu, 32 tuần",
+      role: "",
       feedback:
         "Tư vấn của bác sĩ Giang Nội Tiết thực sự hữu ích! Tôi được hướng dẫn cách theo dõi đường huyết và nhận được nhiều lời khuyên thiết thực để giữ sức khỏe cho cả tôi và em bé.",
-      image: "/images/chi-hoa.jpg",
+      image: "/images/person-3-min.webp",
     },
     {
       name: "Phạm Minh Thư",
       role: "Bà bầu, 26 tuần",
       feedback:
         "Chị Giang không chỉ giỏi chuyên môn mà còn rất gần gũi. Nhờ chị, tôi đã biết cách quản lý tiểu đường thai kỳ mà không lo lắng quá nhiều. Cảm ơn chị rất nhiều!",
-      image: "/images/chi-hoa.jpg",
+      image: "/images/minh-thu.webp",
     },
   ];
 

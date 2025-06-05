@@ -25,7 +25,7 @@ const getImages: NextApiHandler = async (req, res) => {
     const response = await cloudinary.api.resources({
       resource_type: "image",
       max_results: 200,
-      prefix: "tantruonggiang",
+      prefix: "giangnoitiet",
     });
     res.json({ images: response.resources });
   } catch (error: any) {
@@ -38,7 +38,7 @@ const readAllImages: NextApiHandler = async (req, res) => {
       const { resources } = await cloudinary.api.resources({
         resource_type: "image",
         type: "upload",
-        prefix: "tantruonggiang",
+        prefix: "giangnoitiet",
         max_results: 1000,
       });
   
@@ -60,7 +60,7 @@ const uploadNewImage: NextApiHandler = async (req, res) => {
     for (const imageFile of imageFiles) {
       const { secure_url: url } = await cloudinary.uploader.upload(
         imageFile.filepath,
-        { folder: "tantruonggiang" }
+        { folder: "giangnoitiet" }
       );
       uploadedUrls.push(url);
     }

@@ -22,7 +22,7 @@ const Footer = () => {
           <div className="flex flex-col items-start">
             <Link href="/" aria-label="Giang Nội Tiết Home">
               <Image
-                src="/logo-giangnoitiet.png" // Thay bằng đường dẫn logo thực tế
+                src="/logo-giang-noi-tiet-2.png" // Thay bằng đường dẫn logo thực tế
                 alt="Giang Nội Tiết Logo"
                 width={120}
                 height={40}
@@ -48,17 +48,17 @@ const Footer = () => {
           <div className="flex flex-col items-start">
             <h4 className="text-lg font-semibold mb-4">Về chúng tôi</h4>
             <ul className="text-sm text-gray-600 space-y-2 font-semibold">
-              <li className="hover:text-blue-500 hover:translate-x-2 transition-all duration-300">
+              <li className="hover:text-[#00ca99] hover:translate-x-2 transition-all duration-300">
                 <Link href="/gioi-thieu">Về Giang Nội Tiết</Link>
               </li>
-              <li className="hover:text-blue-500 hover:translate-x-2 transition-all duration-300">
+              <li className="hover:text-[#00ca99] hover:translate-x-2 transition-all duration-300">
                 <Link href="/bai-viet">Blog sức khỏe</Link>
               </li>
-              <li className="hover:text-blue-500 hover:translate-x-2 transition-all duration-300">
-                <Link href="https://maps.app.goo.gl/zRgWjfLiDzfABfho9">Địa chỉ Maps</Link>
+              <li className="hover:text-[#00ca99] hover:translate-x-2 transition-all duration-300">
+                <Link href="/lien-he">Địa chỉ Maps</Link>
               </li>
 
-              <li className="hover:text-blue-500 hover:translate-x-2 transition-all duration-300">
+              <li className="hover:text-[#00ca99] hover:translate-x-2 transition-all duration-300">
                 <Link href="/">FAQ</Link>
               </li>
             </ul>
@@ -70,7 +70,7 @@ const Footer = () => {
             <p className="text-sm text-gray-600 mb-4">
               Theo dõi chúng tôi để cập nhật thông tin sức khỏe và các chương trình mới nhất.
             </p>
-            <div className="mb-4">
+            <div className="mb-4 w-full">
               <div
                 className="fb-page"
                 data-href="https://www.facebook.com/giangnoitiet"
@@ -92,36 +92,36 @@ const Footer = () => {
             </div>
             <div className="flex space-x-4">
               <a
-                href="https://www.facebook.com/giangnoitiet"
+                href="https://www.facebook.com/giangnoitiet"  
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Theo dõi Giang Nội Tiết trên Facebook"
               >
-                <FaFacebook className="text-gray-600 hover:text-blue-500 text-xl transition-colors duration-200" />
+                <FaFacebook className="text-gray-600 hover:text-[#00ca99] text-xl transition-colors duration-200" />
               </a>
               <a
-                href="[Link Instagram thực tế]"
+                href="https://www.instagram.com/giangnoitiet"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Theo dõi Giang Nội Tiết trên Instagram"
               >
-                <FaInstagram className="text-gray-600 hover:text-blue-500 text-xl transition-colors duration-200" />
+                <FaInstagram className="text-gray-600 hover:text-[#00ca99] text-xl transition-colors duration-200" />
               </a>
               <a
-                href="[Link YouTube thực tế]"
+                href="https://www.youtube.com/@giangnoitiet"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Theo dõi Giang Nội Tiết trên YouTube"
               >
-                <FaYoutube className="text-gray-600 hover:text-blue-500 text-xl transition-colors duration-200" />
+                <FaYoutube className="text-gray-600 hover:text-[#00ca99] text-xl transition-colors duration-200" />
               </a>
               <a
-                href="[Link TikTok thực tế]"
+                href="https://www.tiktok.com/@giangnoitiettw"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Theo dõi Giang Nội Tiết trên TikTok"
               >
-                <FaTiktok className="text-gray-600 hover:text-blue-500 text-xl transition-colors duration-200" />
+                <FaTiktok className="text-gray-600 hover:text-[#00ca99] text-xl transition-colors duration-200" />
               </a>
             </div>
           </div>

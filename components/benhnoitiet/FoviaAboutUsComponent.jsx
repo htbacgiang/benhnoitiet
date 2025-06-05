@@ -16,7 +16,7 @@ const FoviaAboutUsComponent = () => {
         </div>
 
         {/* Text and Button Section */}
-        <div className="w-full md:w-1/2 md:pl-8 text-center md:text-left">
+        <div className="w-full md:w-1/2 md:pl-8 text-left md:text-left">
           <h1 className="text-4xl font-bold text-[#A2CFFE] mt-2">
             Giang Nội Tiết Là Ai?
           </h1>

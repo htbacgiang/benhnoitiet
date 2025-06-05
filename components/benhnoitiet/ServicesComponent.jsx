@@ -9,49 +9,41 @@ const ServicesComponent = () => {
       name: "Tư vấn cá nhân hóa về tiểu đường thai kỳ",
       icon: <Stethoscope className="mx-auto mb-4 h-12 w-12" />,
       description: "Cung cấp các buổi tư vấn trực tiếp hoặc trực tuyến với bác sĩ nội tiết hoặc chuyên gia dinh dưỡng để đánh giá tình trạng sức khỏe, giải thích kết quả xét nghiệm, và đưa ra kế hoạch quản lý tiểu đường thai kỳ.",
-      image: "/images/1.jpg",
     },
     {
       name: "Lập kế hoạch dinh dưỡng cá nhân hóa",
       icon: <Utensils className="mx-auto mb-4 h-12 w-12" />,
       description: "Cung cấp thực đơn mẫu hoặc kế hoạch dinh dưỡng được thiết kế riêng bởi chuyên gia dinh dưỡng, tập trung vào kiểm soát đường huyết.",
-      image: "/images/1.jpg",
     },
     {
       name: "Tư vấn tập luyện và vận động",
       icon: <Dumbbell className="mx-auto mb-4 h-12 w-12" />,
       description: "Hướng dẫn các bài tập an toàn như yoga bầu, đi bộ, hoặc bài tập tim mạch để kiểm soát đường huyết.",
-      image: "/images/1.jpg",
     },
     {
       name: "Hỗ trợ quản lý stress và sức khỏe tinh thần",
       icon: <Heart className="mx-auto mb-4 h-12 w-12" />,
       description: "Cung cấp tư vấn tâm lý hoặc các buổi thiền, yoga tinh thần để giảm căng thẳng và lo âu.",
-      image: "/images/1.jpg",
     },
     {
       name: "Theo dõi và quản lý đường huyết từ xa",
       icon: <Monitor className="mx-auto mb-4 h-12 w-12" />,
       description: "Hỗ trợ theo dõi chỉ số đường huyết qua ứng dụng hoặc website, kết hợp tư vấn định kỳ.",
-      image: "/images/1.jpg",
     },
     {
       name: "Giáo dục và cung cấp thông tin chuyên sâu",
       icon: <BookOpen className="mx-auto mb-4 h-12 w-12" />,
       description: "Cung cấp khóa học ngắn hoặc nội dung giáo dục về tiểu đường thai kỳ và các bệnh nội tiết khác.",
-      image: "/images/1.jpg",
     },
     {
       name: "Tư vấn về các bệnh nội tiết khác",
       icon: <Thermometer className="mx-auto mb-4 h-12 w-12" />,
       description: "Tư vấn về các vấn đề nội tiết như suy giáp, cường giáp, hoặc PCOS, không chỉ cho bà bầu mà còn phụ nữ nói chung.",
-      image: "/images/1.jpg",
     },
     {
       name: "Tư vấn chăm sóc sau sinh",
       icon: <Baby className="mx-auto mb-4 h-12 w-12" />,
       description: "Hướng dẫn mẹ sau sinh kiểm soát đường huyết và giảm nguy cơ tiểu đường tuýp 2.",
-      image: "/images/1.jpg",
     },
   ];
 

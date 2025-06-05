@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+import Head from "next/head"; // Đảm bảo đã import Head
 import { useState } from "react";
 import { getCsrfToken, getSession } from "next-auth/react";
 import Router from "next/router";
@@ -83,6 +84,44 @@ export default function Signup({ csrfToken }) {
 
   return (
     <>
+     <Head>
+      <title>Đăng ký - Giang Nội Tiết</title>
+      <meta name="description" content="Đăng ký tài khoản tại Giang Nội Tiết để truy cập thông tin sức khỏe, theo dõi bệnh án, và nhận tư vấn chuyên sâu về nội tiết và tiểu đường." />
+      <meta name="keywords" content="Giang Nội Tiết, đăng ký, tài khoản, nội tiết, tiểu đường, sức khỏe, y tế" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="robots" content="noindex, nofollow" /> {/* IMPORTANT! */}
+      <meta property="og:title" content="Đăng ký - Giang Nội Tiết" />
+      <meta property="og:description" content="Đăng ký tài khoản tại Giang Nội Tiết để truy cập thông tin sức khỏe, theo dõi bệnh án, và nhận tư vấn chuyên sâu về nội tiết và tiểu đường." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://giangnoitiet.vn/dang-ky" />
+      <meta property="og:image" content="images/anh-bia-giang-noi-tiet.webp" /> {/* Update this path */}
+      <meta property="og:site_name" content="Giang Nội Tiết" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Đăng ký - Giang Nội Tiết" />
+      <meta name="twitter:description" content="Đăng ký tài khoản tại Giang Nội Tiết để truy cập thông tin sức khỏe, theo dõi bệnh án, và nhận tư vấn chuyên sâu về nội tiết và tiểu đường." />
+      <meta name="twitter:image" content="/images/anh-bia-giang-noi-tiet.webp" /> {/* Update this path */}
+      <link rel="icon" href="/favicon-giangnoitiet.ico" /> {/* Update this path */}
+      <link rel="canonical" href="https://giangnoitiet.vn/dang-ky" />
+      <meta httpEquiv="content-language" content="vi" />
+      {/* Schema Markup for WebPage */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Đăng ký - Giang Nội Tiết",
+          description: "Đăng ký tài khoản tại Giang Nội Tiết để quản lý thông tin sức khỏe, theo dõi tiến trình và truy cập các tài liệu chuyên sâu về nội tiết và tiểu đường.",
+          url: "https://giangnoitiet.vn/dang-ky",
+          publisher: {
+            "@type": "Organization",
+            name: "Giang Nội Tiết",
+            logo: {
+              "@type": "ImageObject",
+              url: "/images/anh-bia-giang-noi-tiet.webp", // Update this path
+            },
+          },
+        })}
+      </script>
+    </Head>
       <ToastContainer
         position="top-center"
         autoClose={3000}
@@ -94,7 +133,7 @@ export default function Signup({ csrfToken }) {
       <section
         className="min-h-screen flex items-center justify-center relative"
         style={{
-          backgroundImage: `url('/dang-ky.jpg')`,
+          backgroundImage: `url('/dang-ky.webp')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

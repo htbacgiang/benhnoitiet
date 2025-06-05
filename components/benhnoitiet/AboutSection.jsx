@@ -10,26 +10,26 @@ export default function AboutSection() {
             <div className="relative rounded-2xl overflow-hidden bg-gray-200 h-64">
               <div
                 className="w-full h-full bg-cover bg-center"
-                style={{ backgroundImage: `url(/images/1.jpg)` }}
+                style={{ backgroundImage: `url(/images/giang-noi-tiet-1.webp)` }}
               />
               <div className="absolute -top-6 -left-6 w-16 h-16 border-2 border-blue-200 rotate-45 bg-white"></div>
             </div>
             <div className="relative rounded-2xl overflow-hidden bg-gray-200 h-64">
               <div
                 className="w-full h-full bg-cover bg-center"
-                style={{ backgroundImage: `url(/images/3.jpg)` }}
+                style={{ backgroundImage: `url(/images/giang-noi-tiet-4.webp)` }}
               />
             </div>
             <div className="relative rounded-2xl overflow-hidden bg-gray-200 h-64">
               <div
                 className="w-full h-full bg-cover bg-center"
-                style={{ backgroundImage: `url(/images/6.jpg)` }}
+                style={{ backgroundImage: `url(/images/giang-noi-tiet-3.webp)` }}
               />
             </div>
             <div className="relative rounded-2xl overflow-hidden bg-gray-200 h-64">
               <div
                 className="w-full h-full bg-cover bg-center"
-                style={{ backgroundImage: `url(/images/5.jpg)` }}
+                style={{ backgroundImage: `url(/images/giang-noi-tiet-2.webp)` }}
               />
               <div className="absolute bottom-0 left-0 w-full h-8 bg-orange-500 opacity-50">
                 <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -41,11 +41,7 @@ export default function AboutSection() {
               <span className="text-5xl font-extrabold">12</span>
               <span className="text-lg font-bold">Năm Kinh Nghiệm</span>
             </div>
-            <div className="absolute top-2 right-2 w-12 h-12 bg-orange-200 rounded-full flex items-center justify-center">
-              <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
+         
           </div>
 
           {/* Right Side - Text and Buttons */}
@@ -57,9 +53,9 @@ export default function AboutSection() {
                 <span className="absolute -right-8 top-1/2 transform -translate-y-1/2 w-6 h-0.5 bg-[#A8E4A0]"></span>
               </h2>
             </div>
-            <h1 className="md:text-xl text-sm uppercase font-bold text-[#A2CFFE] leading-tight text-center lg:text-left">
+            <h2 className="md:text-xl text-sm uppercase font-bold text-[#A2CFFE] leading-tight text-center lg:text-left">
               Nguyễn Thị Hương Giang – Chuyên gia Nội Tiết
-            </h1>
+            </h2>
             <p className="mt-4 text-gray-600 text-base leading-relaxed">
               Với hơn 12 năm kinh nghiệm tại Bệnh viện Nội Tiết Trung Ương, tôi chuyên tư vấn và điều trị các rối loạn nội tiết ở phụ nữ, đặc biệt là tiểu đường thai kỳ, giúp phụ nữ Việt Nam sống khỏe mạnh và tự tin qua mọi giai đoạn cuộc đời.
             </p>

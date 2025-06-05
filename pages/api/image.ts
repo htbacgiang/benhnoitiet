@@ -52,7 +52,7 @@ const uploadNewImage: NextApiHandler = async (req, res) => {
 
     const { secure_url: url } = await cloudinary.uploader.upload(
       imageFile.filepath,
-      { folder: "ecobacgiang" }
+      { folder: "giangnoitiet" }
     );
 
     res.json({ src: url });
@@ -82,7 +82,7 @@ const uploadAvatar: NextApiHandler = async (req, res) => {
 
     const { secure_url: url } = await cloudinary.uploader.upload(
       imageFile.filepath,
-      { folder: "ecobacgiang/avatar" }
+      { folder: "giangnoitiet/avatar" }
     );
 
     res.json({ src: url });
@@ -107,7 +107,7 @@ const uploadMultipleImages: NextApiHandler = async (req, res) => {
       }
       const { secure_url: url } = await cloudinary.uploader.upload(
         file.filepath,
-        { folder: "ecobacgiang" }
+        { folder: "giangnoitiet" }
       );
       uploadedUrls.push(url);
     }
@@ -125,7 +125,7 @@ const readAllImages: NextApiHandler = async (req, res) => {
     const { resources } = await cloudinary.api.resources({
       resource_type: "image",
       type: "upload",
-      prefix: "ecobacgiang",
+      prefix: "giangnoitiet",
       max_results: 1000,
     });
     const images = resources.map((r: any) => ({ src: r.secure_url }));

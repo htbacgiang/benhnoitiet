@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 import DefaultLayout2 from "../../components/layout/DefaultLayout2";
-import { formatPosts, readPostsFromDb } from "../../lib/utils";
+import { formatPosts, readAllPostsFromDb } from "../../lib/utils";
 import { PostDetail } from "../../utils/types";
 
 type MetaData = {
@@ -38,7 +38,7 @@ type Props = {
 };
 
 const Blogs: NextPage<Props> = ({ posts, meta }) => {
-  const postsPerPage = 9;
+  const postsPerPage = 12;
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(posts.length / postsPerPage);
 
@@ -101,13 +101,45 @@ const Blogs: NextPage<Props> = ({ posts, meta }) => {
 
     return pageNumbers;
   };
-
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage", // Hoặc "WebPage"
+    "name": "Blog Tiểu Đường Thai Kỳ & Nội Tiết | Giang Nội Tiết",
+    "description": "Trang của Blog Giang Nội Tiết: Kiến thức chuyên sâu về quản lý tiểu đường thai kỳ, dinh dưỡng và chăm sóc sức khỏe toàn diện cho bà bầu.",
+    "url": "https://giangnoitiet.vn/bai-viet",
+    "image": "https://giangnoitiet.vn/images/anh-bia-giang-noi-tiet.webp", // Sử dụng ảnh banner chính của trang
+    // Nếu đây là trang blog của một tổ chức y tế
+    "publisher": {
+      "@type": "MedicalOrganization", // Hoặc Organization
+      "name": "Giang Nội Tiết",
+      "url": "https://giangnoitiet.vn",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://giangnoitiet.vn/logo.png"
+      }
+    },
+    // Thêm các bài viết cụ thể nếu muốn, nhưng thường không làm trên trang tổng hợp
+    // "mainEntity": posts.map(post => ({
+    //   "@type": "BlogPosting",
+    //   "headline": post.title,
+    //   "image": post.thumbnail,
+    //   "url": `https://giangnoitiet.vn/bai-viet/${post.slug}`,
+    //   "datePublished": post.createdAt,
+    //   "author": { "@type": "Person", "name": post.author || "Giang Nội Tiết" }
+    // }))
+  };
   return (
     <DefaultLayout2>
-
+      <Head>
+        {/* JSON-LD Schema.org cho trang Về Chúng Tôi */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </Head>
       <div className="relative h-[40vh] w-full">
         <Image
-          src="/images/2.jpg"
+          src="/images/giang-noi-tiet-4.webp"
           alt="Blog về tiểu đường thai kỳ - Giangnoitiet"
           layout="fill"
           objectFit="cover"
@@ -164,7 +196,9 @@ const Blogs: NextPage<Props> = ({ posts, meta }) => {
                           className="text-base md:text-base font-bold hover:text-green-600"
                           aria-label={post.title}
                         >
-                          {post.title}
+                          <h2>
+                            {post.title}
+                          </h2>
                         </Link>
                         <Link
                           href={`/bai-viet/${post.slug}`}
@@ -181,7 +215,7 @@ const Blogs: NextPage<Props> = ({ posts, meta }) => {
                     <button
                       onClick={() => handlePageChange(currentPage - 1)}
                       disabled={currentPage === 1}
-                      className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium bg-transparent text-black border border-gray-300 hover:bg-green-600 hover:text-white transition-all duration-300 disabled:opacity-50"
+                      className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium bg-transparent text-black border border-gray-300 hover:bg-[#00ca99] hover:text-white transition-all duration-300 disabled:opacity-50"
                       aria-label="Go to previous page"
                     >
                       <svg
@@ -209,11 +243,10 @@ const Blogs: NextPage<Props> = ({ posts, meta }) => {
                         ) : (
                           <button
                             onClick={() => handlePageChange(page as number)}
-                            className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium ${
-                              currentPage === page
-                                ? "bg-green-600 text-white"
-                                : "bg-transparent text-black border border-gray-300 hover:bg-green-600 hover:text-white"
-                            } transition-all duration-300`}
+                            className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium ${currentPage === page
+                              ? "bg-[#00ca99] text-white"
+                              : "bg-transparent text-black border border-gray-300 hover:bg-[#00ca99] hover:text-white"
+                              } transition-all duration-300`}
                             aria-label={`Go to page ${page}`}
                           >
                             {page}
@@ -224,7 +257,7 @@ const Blogs: NextPage<Props> = ({ posts, meta }) => {
                     <button
                       onClick={() => handlePageChange(currentPage + 1)}
                       disabled={currentPage === totalPages}
-                      className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium bg-transparent text-black border border-gray-300 hover:bg-green-600 hover:text-white transition-all duration-300 disabled:opacity-50"
+                      className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium bg-transparent text-black border border-gray-300 hover:bg-[#00ca99] hover:text-white transition-all duration-300 disabled:opacity-50"
                       aria-label="Go to next page"
                     >
                       <svg
@@ -263,10 +296,10 @@ export const getServerSideProps: GetServerSideProps<{
   meta: MetaData;
 }> = async () => {
   try {
-    const posts = await readPostsFromDb(50, 0);
+    const posts = await readAllPostsFromDb(); // Fetch all posts
     const formattedPosts: PostDetail[] = formatPosts(posts);
     const meta: MetaData = {
-      title: "Blog Tiểu Đường Thai Kỳ - Giangnoitiet",
+      title: "Blog Tiểu Đường Thai Kỳ - Giang Nội Tiết",
       description:
         "Cung cấp giải pháp toàn diện giúp bà bầu quản lý tiểu đường thai kỳ, đảm bảo sức khỏe cho mẹ và bé thông qua tư vấn chuyên sâu, dinh dưỡng và chăm sóc tinh thần.",
       keywords:
@@ -275,11 +308,11 @@ export const getServerSideProps: GetServerSideProps<{
       robots: "index, follow",
       canonical: "https://giangnoitiet.vn/bai-viet",
       og: {
-        title: "Blog Tiểu Đường Thai Kỳ - Giangnoitiet",
+        title: "Blog Tiểu Đường Thai Kỳ - Giang Nội Tiết",
         description:
           "Khám phá các giải pháp toàn diện về tiểu đường thai kỳ, dinh dưỡng và chăm sóc tinh thần cho bà bầu tại Giangnoitiet.",
         type: "website",
-        image: "https://giangnoitiet.vn/images/tieu-duong-thai-ky.jpg",
+        image: "https://giangnoitiet.vn/images/anh-bia-giang-noi-tiet.webp",
         imageWidth: "1200",
         imageHeight: "630",
         url: "https://giangnoitiet.vn/bai-viet",
@@ -287,10 +320,10 @@ export const getServerSideProps: GetServerSideProps<{
       },
       twitter: {
         card: "summary_large_image",
-        title: "Blog Tiểu Đường Thai Kỳ - Giangnoitiet",
+        title: "Blog Tiểu Đường Thai Kỳ - Giang Nội Tiết",
         description:
           "Tìm hiểu các giải pháp quản lý tiểu đường thai kỳ, dinh dưỡng và chăm sóc tinh thần cho bà bầu tại Giangnoitiet.",
-        image: "https://giangnoitiet.vn/images/tieu-duong-thai-ky.jpg",
+        image: "https://giangnoitiet.vn/images/anh-bia-giang-noi-tiet.webp",
       },
     };
 

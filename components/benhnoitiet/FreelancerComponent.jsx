@@ -16,7 +16,7 @@ const FreelancerComponent = () => {
     <>
       <div
         className="flex container mt-10 justify-center items-center min-h-[400px] rounded-[20px] shadow-lg p-5 mx-auto bg-cover bg-center relative"
-        style={{ backgroundImage: "url('/images/eCommerce.avif')" }}
+        style={{ backgroundImage: "url('/images/banner-noi-tiet.jpg')" }}
       >
         <div className="absolute inset-0 bg-black opacity-30 rounded-[20px]"></div>
         <div className="flex flex-col justify-center items-center text-center text-white max-w-2xl rounded-lg relative z-10">

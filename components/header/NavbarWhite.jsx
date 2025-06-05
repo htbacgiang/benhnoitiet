@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import logo from "../../public/logoecobacgiang.png";
+import logo from "../../public/logo-giang-noi-tiet-2.png";
 import Image from "next/image";
 import Link from "next/link";
 import { IoSearch } from "react-icons/io5";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import ResponsiveNavbar from "./ResponsiveNavbar";
-import CrowdfundingSection from "./CrowdfundingSection";
+import ContactForm from "./ContactForm";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,9 +25,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full h-16 z-50 transition-all duration-500 ${
-        isSticky ? "shadow-sm bg-white" : "bg-transparent"
-      }`}
+      className={`fixed w-full h-16 z-50 transition-all duration-500 ${isSticky ? "shadow-sm bg-white" : "bg-transparent"
+        }`}
     >
       <div className="flex justify-between items-center h-full w-full px-4 md:px-16">
         {/* Logo */}
@@ -48,9 +47,8 @@ const Navbar = () => {
             <li>
               <Link
                 href="/"
-                className={`hover:text-[#00ca99] font-heading font-semibold ${
-                  isSticky ? "text-black" : "text-white"
-                }`}
+                className={`hover:text-[#00ca99] font-heading font-semibold ${isSticky ? "text-black" : "text-white"
+                  }`}
               >
                 Trang chủ
               </Link>
@@ -58,9 +56,8 @@ const Navbar = () => {
             <li>
               <Link
                 href="/gioi-thieu"
-                className={`hover:text-[#00ca99] font-heading font-semibold ${
-                  isSticky ? "text-black" : "text-white"
-                }`}
+                className={`hover:text-[#00ca99] font-heading font-semibold ${isSticky ? "text-black" : "text-white"
+                  }`}
               >
                 Giới thiệu
               </Link>
@@ -68,29 +65,18 @@ const Navbar = () => {
             <li>
               <Link
                 href="/bai-viet"
-                className={`hover:text-[#00ca99] font-heading font-semibold ${
-                  isSticky ? "text-black" : "text-white"
-                }`}
+                className={`hover:text-[#00ca99] font-heading font-semibold ${isSticky ? "text-black" : "text-white"
+                  }`}
               >
                 Kiến thức
               </Link>
             </li>
-            <li>
-              <Link
-                href="/san-pham"
-                className={`hover:text-[#00ca99] font-heading font-semibold ${
-                  isSticky ? "text-black" : "text-white"
-                }`}
-              >
-                Sản phẩm
-              </Link>
-            </li>
+
             <li>
               <Link
                 href="/lien-he"
-                className={`hover:text-[#00ca99] font-heading font-semibold ${
-                  isSticky ? "text-black" : "text-white"
-                }`}
+                className={`hover:text-[#00ca99] font-heading font-semibold ${isSticky ? "text-black" : "text-white"
+                  }`}
               >
                 Liên hệ
               </Link>
@@ -102,7 +88,7 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center space-x-4">
           <button
             onClick={toggleCrowdFunding}
-            className={`py-3 font-heading px-4 rounded font-semibold bg-[#00ca99] text-white hover:bg-green-700`}
+            className={`py-3 font-heading px-4 rounded font-semibold bg-[#00ca99]  text-white hover:bg-[#00ca99]/80`}
             aria-label="Open Crowd Funding form"
           >
             Đăng ký tư vấn
@@ -123,18 +109,16 @@ const Navbar = () => {
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
             </svg>
             <span
-              className={`uppercase font-bold ${
-                isSticky ? "text-black" : "text-white"
-              }`}
+              className={`uppercase font-bold ${isSticky ? "text-black" : "text-white"
+                }`}
             >
-              0948.907.686
-            </span>
+              0948.907.686</span>
           </a>
         </div>
 
         {/* Hamburger Menu */}
         <div
-          className="md:hidden cursor-pointer text-white"
+          className="md:hidden cursor-pointer text-black"
           onClick={toggleMenu}
           role="button"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -186,7 +170,7 @@ const Navbar = () => {
                 aria-label="Close Crowd Funding form"
               />
             </div>
-            <CrowdfundingSection />
+            <ContactForm />
           </div>
         </div>
       )}

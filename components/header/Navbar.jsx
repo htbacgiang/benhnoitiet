@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "../../public/logoecobacgiang.png";
+import logo from "../../public/logo-giang-noi-tiet-2.png";
 import Image from "next/image";
 import Link from "next/link";
 import { IoSearch } from "react-icons/io5";
@@ -69,14 +69,7 @@ const Navbar = () => {
                 Kiến thức
               </Link>
             </li>
-            <li>
-              <Link
-                href="/san-pham"
-                className={`hover:text-[#00ca99] font-heading font-semibold text-black`}
-              >
-                Sản phẩm
-              </Link>
-            </li>
+    
             <li>
               <Link
                 href="/lien-he"
@@ -118,7 +111,7 @@ const Navbar = () => {
 
         {/* Hamburger Menu */}
         <div
-          className="md:hidden cursor-pointer text-white"
+          className="md:hidden cursor-pointer text-black"
           onClick={toggleMenu}
           role="button"
           aria-label={menuOpen ? "Close menu" : "Open menu"}

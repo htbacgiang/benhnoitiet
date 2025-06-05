@@ -15,9 +15,39 @@ export default function AboutUs({ meta }) {
   useEffect(() => {
     setRunAnimation(true);
   }, []);
-
+  // JSON-LD Schema.org cho trang "Về Chúng Tôi" (MedicalOrganization hoặc Person)
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization", // Hoặc "Person" nếu Giang Nội Tiết là một cá nhân bác sĩ
+    "name": "Giang Nội Tiết",
+    "url": "https://giangnoitiet.vn/gioi-thieu",
+    "logo": "https://giangnoitiet.vn/logo-giang-noi-tiet-2.png", // Đảm bảo URL logo này là đúng
+    "image": "https://giangnoitiet.vn/images/anh-bia-giang-noi-tiet.webp", // Sử dụng ảnh banner chính của trang
+    "description": "Tìm hiểu về Giang Nội Tiết – Chuyên gia hàng đầu trong tư vấn tiểu đường thai kỳ, rối loạn nội tiết. Khám phá hành trình trở thành chuyên gia và sứ mệnh của chúng tôi.",
+    "sameAs": [
+      "https://www.facebook.com/giangnoitiet",
+      // Thêm các liên kết mạng xã hội khác nếu có
+    ],
+    // "foundingDate": "20XX-YY-ZZ", // Nếu biết ngày thành lập/khởi đầu
+    // Nếu là Person (cá nhân bác sĩ)
+    // "@type": "Person",
+    // "name": "Nguyễn Thị Giang", // Tên đầy đủ của bác sĩ Giang
+    // "alumniOf": "Tên trường đại học y/bệnh viện",
+    // "jobTitle": "Chuyên gia Nội Tiết",
+    // "worksFor": {
+    //   "@type": "Organization",
+    //   "name": "Giang Nội Tiết"
+    // }
+  };
   return (
     <DefaultLayout2>
+      <Head>
+        {/* JSON-LD Schema.org cho trang Về Chúng Tôi */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </Head>
       {/* Hero Section */}
       <section className="relative h-[200px] md:h-[300px] bg-[#F5F5F5]">
         <div className="absolute inset-0">
@@ -31,7 +61,7 @@ export default function AboutUs({ meta }) {
           <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         </div>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-[#333333]">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#A2CFFE]">Về Giang Nội Tiết</h1>
+          <h1 className="text-2xl md:text-3xl font-bold mb-2 text-[#A2CFFE]">Về Giang Nội Tiết</h1>
           <nav aria-label="Breadcrumb" className="text-white">
             <Link href="/">
               <span className="hover:text-[#FFD1DC] cursor-pointer">
@@ -82,9 +112,9 @@ export default function AboutUs({ meta }) {
                 />
               </div>
               <div>
-                <h2 className="text-2xl font-semibold text-[#333333] mb-4">
+                <h3 className="text-2xl font-semibold text-[#333333] mb-4">
                   Bắt đầu hành trình chăm sóc nội tiết ngay hôm nay!
-                </h2>
+                </h3>
                 <p className="text-[#666666] text-sm md:text-lg mb-4">
                   Nếu bạn đang gặp phải rối loạn kinh nguyệt, mất ngủ, khô hạn, suy giảm ham muốn, mệt mỏi, tăng cân không kiểm soát… <b>ĐỪNG CHỦ QUAN!</b>
                   <br />
@@ -109,30 +139,30 @@ export default function AboutUs({ meta }) {
 
 export async function getServerSideProps() {
   const meta = {
-    title: "Giới Thiệu Giang Nội Tiết - Tư Vấn Tiểu Đường Thai Kỳ",
-    content:
-      "Giang Nội Tiết – Chuyên gia tư vấn tiểu đường thai kỳ và rối loạn nội tiết, hỗ trợ sức khỏe cho mẹ bầu. Khám phá hành trình chăm sóc nội tiết chuyên sâu!",
+    title: "Về Giang Nội Tiết - Chuyên gia Tiểu Đường Thai kỳ & Rối loạn Nội tiết", // Tối ưu tiêu đề: Rõ ràng, chứa từ khóa, nhấn mạnh vai trò
+    description:
+      "Tìm hiểu về Giang Nội Tiết – Chuyên gia hàng đầu trong tư vấn tiểu đường thai kỳ, rối loạn nội tiết. Khám phá hành trình trở thành chuyên gia, sứ mệnh và cam kết của chúng tôi.", // Mô tả: Cụ thể, hấp dẫn, chứa từ khóa chính, độ dài phù hợp
     keywords:
-      "tiểu đường thai kỳ, rối loạn nội tiết, tư vấn sức khỏe bà bầu, nội tiết sinh sản, Giang Nội Tiết",
+      "Giang Nội Tiết, tiểu đường thai kỳ, rối loạn nội tiết, tư vấn sức khỏe phụ nữ, hành trình chuyên gia nội tiết, điều dưỡng nội tiết, sứ mệnh y tế", // Thêm từ khóa đa dạng, liên quan đến nội dung "Về chúng tôi"
     robots: "index, follow",
     author: "Giang Nội Tiết",
-    canonical: "https://giangnoitiet.vn/gioi-thieu",
+    canonical: "https://giangnoitiet.vn/gioi-thieu", // Đảm bảo URL canonical chính xác
     og: {
-      title: "Giang Nội Tiết – Tư Vấn Tiểu Đường Thai Kỳ",
+      title: "Về Giang Nội Tiết - Chuyên gia Tiểu Đường Thai kỳ & Rối loạn Nội tiết",
       description:
-        "Khám phá dịch vụ tư vấn chuyên sâu về tiểu đường thai kỳ và rối loạn nội tiết từ Giang Nội Tiết, đồng hành cùng sức khỏe mẹ và bé.",
-      type: "website",
-      image: "https://giangnoitiet.vn/images/giang-noi-tiet.jpg",
+        "Khám phá hành trình, sứ mệnh và cam kết của Giang Nội Tiết trong việc tư vấn chuyên sâu về tiểu đường thai kỳ và rối loạn nội tiết, đồng hành cùng sức khỏe phụ nữ Việt.",
+      type: "website", // Hoặc "profile" nếu trang này giới thiệu về một cá nhân
+      image: "https://giangnoitiet.vn/images/anh-bia-giang-noi-tiet.webp", // Ảnh đại diện cho trang "Về Chúng Tôi" (khác với homepage)
       imageWidth: "1200",
       imageHeight: "630",
       url: "https://giangnoitiet.vn/gioi-thieu",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Giới Thiệu Giang Nội Tiết - Tư Vấn Tiểu Đường Thai Kỳ",
+      title: "Về Giang Nội Tiết - Chuyên gia Tiểu Đường Thai kỳ & Rối loạn Nội tiết",
       description:
-        "Giang Nội Tiết – Chuyên gia tư vấn tiểu đường thai kỳ và rối loạn nội tiết, mang đến sức khỏe và sự tự tin cho mẹ bầu.",
-      image: "https://giangnoitiet.vn/images/giang-noi-tiet.jpg",
+        "Tìm hiểu về Giang Nội Tiết – Chuyên gia hàng đầu trong tư vấn và điều trị tiểu đường thai kỳ, rối loạn nội tiết. Đồng hành cùng sức khỏe phụ nữ Việt.",
+      image: "https://giangnoitiet.vn/images/anh-bia-giang-noi-tiet.webp",
     },
   };
 

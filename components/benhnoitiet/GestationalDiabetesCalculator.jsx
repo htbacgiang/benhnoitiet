@@ -1,41 +1,62 @@
 'use client'; // Đánh dấu đây là Client Component trong Next.js
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function GestationalDiabetesCalculator() {
   const [fasting, setFasting] = useState('');
   const [oneHour, setOneHour] = useState('');
   const [twoHour, setTwoHour] = useState('');
   const [result, setResult] = useState(null);
-  const [unit, setUnit] = useState('mmol/L'); // Default unit is mmol/L
+  const [unit, setUnit] = useState('mmol/L'); // Default unit for calculator
+  const [convertValue, setConvertValue] = useState('');
+  const [convertUnit, setConvertUnit] = useState('mmol/L'); // Default unit for conversion form
+  const [convertedResult, setConvertedResult] = useState('');
+  const [toast, setToast] = useState({ message: '', type: '', visible: false });
 
   // Conversion factors
   const toMgDL = (mmol) => Math.round(mmol * 18);
   const toMmolL = (mgdl) => (mgdl / 18).toFixed(1);
 
-  // Conversion table data
-  const conversionTable = [
-    { mmolL: 2.0, mgDL: 36 },
-    { mmolL: 3.0, mgDL: 54 },
-    { mmolL: 4.0, mgDL: 72 },
-    { mmolL: 5.0, mgDL: 90 },
-    { mmolL: 5.1, mgDL: 92 },
-    { mmolL: 5.3, mgDL: 95 },
-    { mmolL: 6.0, mgDL: 108 },
-    { mmolL: 6.7, mgDL: 121 },
-    { mmolL: 7.8, mgDL: 140 },
-    { mmolL: 8.5, mgDL: 153 },
-    { mmolL: 10.0, mgDL: 180 },
-    { mmolL: 11.1, mgDL: 200 },
-  ];
+  // Handle toast display for errors only
+  const showToast = (message) => {
+    setToast({ message, type: 'error', visible: true });
+  };
 
-  // Split table into two parts
-  const firstTable = conversionTable.slice(0, 6);
-  const secondTable = conversionTable.slice(6);
+  // Auto-dismiss toast after 3 seconds
+  useEffect(() => {
+    if (toast.visible) {
+      const timer = setTimeout(() => {
+        setToast({ ...toast, visible: false });
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [toast]);
+
+  // Handle conversion
+  const handleConversion = (value, unit) => {
+    if (!value) {
+      setConvertedResult('');
+      return;
+    }
+    const numValue = parseFloat(value);
+    if (isNaN(numValue) || numValue < 0) {
+      setConvertedResult('');
+      showToast('Vui lòng nhập giá trị hợp lệ (số không âm)!');
+      return;
+    }
+    const result = unit === 'mmol/L' ? toMgDL(numValue) : toMmolL(numValue);
+    setConvertedResult(`${result} ${unit === 'mmol/L' ? 'mg/dL' : 'mmol/L'}`);
+  };
+
+  // Reset conversion form
+  const handleConvertReset = () => {
+    setConvertValue('');
+    setConvertedResult('');
+  };
 
   const checkGestationalDiabetes = () => {
     if (!fasting && !oneHour && !twoHour) {
-      alert('Vui lòng nhập ít nhất một giá trị đường huyết!');
+      showToast('Vui lòng nhập ít nhất một giá trị đường huyết!');
       return;
     }
 
@@ -48,7 +69,7 @@ export default function GestationalDiabetesCalculator() {
       (oneHour && (isNaN(oneHourValue) || oneHourValue < 0)) ||
       (twoHour && (isNaN(twoHourValue) || twoHourValue < 0))
     ) {
-      alert('Vui lòng nhập giá trị hợp lệ (số không âm)!');
+      showToast('Vui lòng nhập giá trị hợp lệ (số không âm)!');
       return;
     }
 
@@ -112,60 +133,85 @@ export default function GestationalDiabetesCalculator() {
             <p className="mt-6 text-sm text-gray-500">
               * Chỉ cần 1 trong 3 giá trị vượt ngưỡng là được chẩn đoán tiểu đường thai kỳ (theo Bộ Y tế Việt Nam, 2020).
             </p>
-            {/* Conversion Table */}
+            {/* Conversion Form */}
             <div className="mt-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Bảng quy đổi đơn vị</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <table className="w-full text-sm text-gray-600">
-                  <thead>
-                    <tr className="bg-blue-50">
-                      <th className="p-2 text-left">mmol/L</th>
-                      <th className="p-2 text-left">mg/dL</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {firstTable.map((row, index) => (
-                      <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : ''}>
-                        <td className="p-2">{row.mmolL.toFixed(1)}</td>
-                        <td className="p-2">{row.mgDL}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-                <table className="w-full text-sm text-gray-600">
-                  <thead>
-                    <tr className="bg-blue-50">
-                      <th className="p-2 text-left">mmol/L</th>
-                      <th className="p-2 text-left">mg/dL</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {secondTable.map((row, index) => (
-                      <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : ''}>
-                        <td className="p-2">{row.mmolL.toFixed(1)}</td>
-                        <td className="p-2">{row.mgDL}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">Quy đổi đơn vị đường huyết</h3>
+              <div className="space-y-4">
+                <div className="flex flex-col sm:flex-row sm:space-x-4">
+                  <div className="flex-1">
+                    <label htmlFor="convert-value" className="block text-sm font-medium text-gray-600">
+                      Giá trị đường huyết
+                    </label>
+                    <input
+                      id="convert-value"
+                      type="number"
+                      step="0.1"
+                      value={convertValue}
+                      onChange={(e) => {
+                        setConvertValue(e.target.value);
+                        handleConversion(e.target.value, convertUnit);
+                      }}
+                      className="mt-1 block w-full border border-gray-300 rounded-md p-2 text-sm text-gray-800"
+                      placeholder="Nhập giá trị"
+                      aria-describedby="convert-value-desc"
+                    />
+                    <p id="convert-value-desc" className="text-xs text-gray-500 mt-1">
+                      Nhập giá trị đường huyết để quy đổi.
+                    </p>
+                  </div>
+                  <div className="flex-1">
+                    <label htmlFor="convert-unit" className="block text-sm font-medium text-gray-600">
+                      Đơn vị
+                    </label>
+                    <select
+                      id="convert-unit"
+                      value={convertUnit}
+                      onChange={(e) => {
+                        setConvertUnit(e.target.value);
+                        handleConversion(convertValue, e.target.value);
+                      }}
+                      className="mt-1 block w-full border border-gray-300 rounded-md p-2 text-sm text-gray-800"
+                      aria-describedby="convert-unit-desc"
+                    >
+                      <option value="mmol/L">mmol/L</option>
+                      <option value="mg/dL">mg/dL</option>
+                    </select>
+                    <p id="convert-unit-desc" className="text-xs text-gray-500 mt-1">
+                      Chọn đơn vị của giá trị nhập.
+                    </p>
+                  </div>
+                </div>
+                {convertedResult && (
+                  <div className="p-4 bg-gray-100 rounded-lg">
+                    <p className="text-sm text-gray-600">
+                      Kết quả quy đổi: <span className="font-semibold">{convertedResult}</span>
+                    </p>
+                  </div>
+                )}
+                <button
+                  type="button"
+                  onClick={handleConvertReset}
+                  className="w-full rounded-md bg-gray-300 text-gray-700 px-4 py-2 hover:bg-gray-400 transition-all"
+                >
+                  XÓA QUY ĐỔI
+                </button>
               </div>
             </div>
           </div>
 
           {/* Input Form */}
-          <div className="bg-white p-6 rounded-lg shadow-md flex flex-col relative">
-            <h2 id="calculator-title" className="text-2xl font-bold text-gray-800 mb-6">
+          <div className="bg-white p-6 rounded-md shadow-sm flex flex-col relative">
+            <h2 id="calculator-title" className="text-2xl font-bold text-gray-800 mb-3xl">
               Kiểm tra tiểu đường thai kỳ
             </h2>
-            <p className="text-sm text-gray-600 mb-6">
-              Nhập các giá trị đường huyết ({unit}) để kiểm tra nguy cơ tiểu đường thai kỳ. Kết quả chỉ mang tính tham khảo. Vui lòng tham khảo ý kiến bác sĩ.
+            <p className="text-sm font-medium text-gray-600 mb-6">
+              Nhập các giá trị đường huyết ({unit}) để kiểm tra nguy cơ tiểu đường thai kỳ. Kết quả chỉ mang tính tham khảo.
             </p>
-            <div className="mb-6">
+            <div className="mb-4">
               <label htmlFor="unit-select" className="block text-sm font-medium text-gray-600 mb-2">
                 Đơn vị
               </label>
-              <select
-                id="unit-select"
+              <select id="unit-select"
                 value={unit}
                 onChange={(e) => {
                   setUnit(e.target.value);
@@ -174,7 +220,7 @@ export default function GestationalDiabetesCalculator() {
                   setTwoHour('');
                   setResult(null);
                 }}
-                className="block w-full border border-gray-300 rounded-md p-2 text-sm text-gray-800"
+                className="mt-1 block w-full border border-gray-300 rounded-md p-2 text-sm text-gray-800"
                 aria-describedby="unit-desc"
               >
                 <option value="mmol/L">mmol/L</option>
@@ -184,27 +230,26 @@ export default function GestationalDiabetesCalculator() {
                 Chọn đơn vị đo đường huyết.
               </p>
             </div>
-            <form onSubmit={handleSubmit} className="space-y-6 flex-1" aria-labelledby="calculator-title">
+            <form onSubmit={handleSubmit} className="space-y-4 flex-1" aria-labelledby="calculator-title">
               <div>
-                <label htmlFor="fasting" className="block text-sm font-medium text-gray-600">
+                <label htmlFor="fasting" className="block text-sm font-medium text-gray-700">
                   Đường huyết lúc đói ({unit})
                 </label>
-                <input
-                  id="fasting"
+                <input id="fasting"
                   type="number"
                   step="0.1"
                   value={fasting}
                   onChange={(e) => setFasting(e.target.value)}
-                  className="mt-1 block w-full border border-gray-300 rounded-md p-2 text-sm text-gray-800"
+                  className="mt-1 block w-full border border-gray-400 rounded-md p-2.5 text-sm"
                   placeholder={unit === 'mmol/L' ? 'Ví dụ: 5.1' : 'Ví dụ: 92'}
-                  aria-describedby="fasting-desc"
+                    aria-describedby="fasting-desc"
                 />
                 <p id="fasting-desc" className="text-xs text-gray-500 mt-1">
                   Nhập giá trị đường huyết lúc đói ({unit}).
                 </p>
               </div>
               <div>
-                <label htmlFor="oneHour" className="block text-sm font-medium text-gray-600">
+                <label htmlFor="oneHour" className="block text-sm font-medium text-gray-700">
                   Đường huyết sau 1 giờ ({unit})
                 </label>
                 <input
@@ -213,7 +258,7 @@ export default function GestationalDiabetesCalculator() {
                   step="0.1"
                   value={oneHour}
                   onChange={(e) => setOneHour(e.target.value)}
-                  className="mt-1 block w-full border border-gray-300 rounded-md p-2 text-sm text-gray-800"
+                  className="mt-1 block w-full border border-gray-400 rounded-md p-2.5 text-sm"
                   placeholder={unit === 'mmol/L' ? 'Ví dụ: 10.0' : 'Ví dụ: 180'}
                   aria-describedby="oneHour-desc"
                 />
@@ -222,7 +267,7 @@ export default function GestationalDiabetesCalculator() {
                 </p>
               </div>
               <div>
-                <label htmlFor="twoHour" className="block text-sm font-medium text-gray-600">
+                <label htmlFor="twoHour" className="block text-sm font-medium text-gray-700">
                   Đường huyết sau 2 giờ ({unit})
                 </label>
                 <input
@@ -231,7 +276,7 @@ export default function GestationalDiabetesCalculator() {
                   step="0.1"
                   value={twoHour}
                   onChange={(e) => setTwoHour(e.target.value)}
-                  className="mt-1 block w-full border border-gray-300 rounded-md p-2 text-sm text-gray-800"
+                  className="mt-1 block w-full border border-gray-400 rounded-md p-2.5 text-sm"
                   placeholder={unit === 'mmol/L' ? 'Ví dụ: 8.5' : 'Ví dụ: 153'}
                   aria-describedby="twoHour-desc"
                 />
@@ -296,6 +341,17 @@ export default function GestationalDiabetesCalculator() {
                 <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm0-2a6 6 0 110-12 6 6 0 010 12z" />
               </svg>
             </div>
+
+            {/* Toast Notification */}
+            {toast.visible && (
+              <div
+                className="fixed top-4 right-4 p-4 z-50 rounded-lg shadow-lg text-white bg-red-600 transition-opacity duration-300"
+                role="alert"
+                aria-live="assertive"
+              >
+                {toast.message}
+              </div>
+            )}
           </div>
         </div>
       </div>
